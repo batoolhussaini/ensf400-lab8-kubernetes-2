@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-1-service
+spec:
+  selector:
+    app: app-1 # Label selector to select pods from the app-1 Deployment
+  ports:
+    - protocol: TCP
+      port: 8080 # The port on which the service will be exposed
+      targetPort: 3000  # The port on the pods that the service will forward traffic to

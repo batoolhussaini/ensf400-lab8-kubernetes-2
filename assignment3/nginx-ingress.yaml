@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    spec.ingressClassName: nginx
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/canary-weight: "70"
+  labels:
+    app: nginx
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-svc
+            port:
+              number: 80
+
+

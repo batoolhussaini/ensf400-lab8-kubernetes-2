@@ -1,10 +1,19 @@
-upstream backend {
-    server app-1:8080;
-    server app-2:8080;
-}
-
-server {
-    location / {
-        proxy_pass http://backend;
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+data:
+  nginx.cfg: |
+    http {
+      upstream backend {
+        server app-1-service:8080; 
+        server app-2-service:8080;
+      }
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://backend;
+        }
+      }
     }
-}
+    events {}
