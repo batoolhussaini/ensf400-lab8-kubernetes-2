@@ -5,7 +5,7 @@ metadata:
   annotations:
     spec.ingressClassName: nginx
     ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/canary-weight: "70"
+    # nginx.ingress.kubernetes.io/canary-weight: "70"
   labels:
     app: nginx
 spec:
