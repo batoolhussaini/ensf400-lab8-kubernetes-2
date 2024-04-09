@@ -7,14 +7,16 @@ spec:
     matchLabels:
       app: app-2
   replicas: 1
+      
   template:
     metadata:
-      labels: 
+      labels:
         app: app-2
+
     spec:
       containers:
       - name: app-2
         image: ghcr.io/denoslab/ensf400-sample-app:v2
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 3000

@@ -5,8 +5,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: nginx  # Label selector to select pods from the nginx Deployment
+    run: nginx-svc # Label selector to select pods from the nginx-svc Deployment
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  - protocol: TCP
+    port: 80
+    targetPort: 80

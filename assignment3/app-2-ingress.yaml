@@ -4,17 +4,17 @@ metadata:
   name: app-2-ingress
   annotations:
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-weight-percent: "30"
+    nginx.ingress.kubernetes.io/canary-weight: "30"
   labels:
-    app: app-2
+    app: nginx-canary
 spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /app
         pathType: Prefix
         backend:
           service:
-            name: app-2-service
+            name: app-2
             port:
-              number: 8080  # Port number exposed by the app-2 service
+              number: 8080
