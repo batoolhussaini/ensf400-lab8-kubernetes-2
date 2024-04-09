@@ -1,12 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment 
 metadata:
   name: nginx-dep
-spec:
-  replicas: 5
+spec: #describes desired state of deployment
+  replicas: 5 #5 instances of nginx service runnin
   selector:
     matchLabels:
-      app: nginx
+      app: nginx #specifying labels 
       run: nginx-svc
   template:
     metadata:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: nginx:1.14.2 
         ports:
         - containerPort: 80
         
@@ -24,7 +24,7 @@ spec:
         - name: config-volume
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.cfg
-      volumes:
+      volumes: #volume that can be mounted into pods
       - name: config-volume
         configMap:
           name: nginx-configmap

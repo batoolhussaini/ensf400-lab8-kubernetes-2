@@ -5,14 +5,14 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: / 
-    nginx.ingress.kubernetes.io/canary: "false"
+    nginx.ingress.kubernetes.io/canary: "false" #deploying to all servers at once
   labels:
     app: app-1
 spec:
   rules:
   - http:
       paths:
-      - path: /app
+      - path: /
         pathType: Prefix
         backend:
           service:
